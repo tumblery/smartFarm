@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>Smart한 Login</title>
+<!--login.html-->
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.login_design{
+			margin-top : 40px;
+			padding-top :10%;
+			margin=left :20px;
+			margin-bottom : 10px;
+			width: 40%;
+			height : 100%;
+			float: left;
+			background-size : contain;
+	}
+	.login{
+		float: right;
+		width: 60%;
+		height :100%;
+		background-size: contain;
+		marin-top : 10px;
+		margin-fight : 20px;
+		margin-bottom : 10px;
+	}
+
+	@FONT-FACE{
+		font-family: 'IDPWfont';
+		src:url("./font/BMHANNA_11yrs_ttf.ttf");
+		}
+	.login_design:OK{
+		background : url("./img/OK.JPG") no-repeat;
+		border : none;
+		width : 430px;
+		height : 79px;
+		cursor : pointer;
+		}
+	</style>
+</head>
+<script type="text/javascript">
+	function OK(){
+		var pw = document.getElementById("PW").value;
+		alert(pw);
+		document.location.href="./authOwner"; 
+	}
+</script>
+<body>
+	<div class="login_design">
+	<img src="./img/init_H.jpg" style="max-width :100%;max-height:100%;width: 100%;height:auto;">
+	</div>
+	<div class="login" style="vertical-align:middle">
+		<img src="./img/login.jpg" style="display:block;padding-left:20%;padding-top:5%;float:left;max-width :100%;max-height:100%;width:60%;height:auto;">
+		<br clear=ALL>
+			<br><br><br>
+			<p style="padding-left:32em;"/>
+			<input type="text" id="PW" value="PW를 입력해주세요" onclick="this.value='';" maxlength=30 size= 33 style="font-size:2em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-left:30px;"/>
+			<br><br>
+			<p style="padding-left:40em;"/>
+			<img src="./img/OK.JPG" onclick="OK()"/>	
+	</div>
+	
+</body>
+</html>

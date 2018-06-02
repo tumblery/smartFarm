@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<!--setting_plant.html-->
+<head>
+<meta charset="utf-8">
+	<style type="text/css">
+	.setting_design{
+		margin-top : 40px;
+		padding-top :8%;
+		margin=left :20px;
+		margin-bottom : 10px;
+		width: 40%;
+		height : 100%;
+		float: left;
+		background-size : contain;
+	}
+	@FONT-FACE{
+		font-family: 'IDPWfont';
+		src:url("./font/BMHANNA_11yrs_ttf.ttf");
+	}
+	.setting{
+		float: right;
+		width: 60%;
+		height :100%;
+		background-size: contain;
+		marin-top : 10px;
+		margin-fight : 20px;
+		margin-bottom : 10px;
+	}
+	</style>
+</head>
+
+<script type="text/javascript">
+function plant_setting(){
+		var temper_m = document.getElementById("temper_m").value;
+		var temper_M = document.getElementById("temper_M").value;
+		var humi_m = document.getElementById("humi_m").value;
+		var humi_M = document.getElementById("humi_M").value;
+		var shumi_m = document.getElementById("shumi_m").value;
+		var shumi_M = document.getElementById("humi_m").value;
+		var Pname = document.getElementById("Pname").value;
+		
+		var string = "temp: "+temper_m+"~"+temper_M+"\n";
+		string += "humi: "+humi_m+"~"+humi_M+"\n";
+		string += "shumi: "+shumi_m+"~"+shumi_M+"\n";
+		string += Pname;
+		alert("등록 완료\n"+string);
+		document.location.href="./setting_main.html";
+}
+</script>
+<body>
+	<div class="setting_design">
+		<img src="./img/init_H.jpg" style="max-width :100%;max-height:100%;width: 100%;height:auto;">
+	</div>
+	<div class="setting" style="vertical-align:middle">
+		<img src="./img/logo_setting_main.JPG" style="display:block;padding-left:20%;padding-top:5%;float:left;max-width :100%;max-height:100%;width:60%;height:auto;">
+		<br>
+		<p style="padding-left:12em;"/>
+		<div style="padding-top: 20%;padding-left:20%;">
+			<img src="./img/plant_name.jpg"  style="float:left;"/ >
+			<input type="text" id="Pname"  maxlength=20 size=27 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<br><br><br>
+			
+			<img src="./img/temper.jpg" style="float:left;"/ >
+			<img src="./img/blank.jpg"  style="float:left;padding-left:2%;"/ >
+			<tr>
+			<input type="text" id="temper_m"  maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_temper.jpg" style="float:left;"/>
+			<img src="./img/range.jpg" style="float:left;"/>
+			<input type="text" id="temper_M" maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_temper.jpg" style="float:left;"/>
+			
+			<br><br><br>
+			<img src="./img/humi.jpg"  style="float:left;"/ >
+			<img src="./img/blank.jpg"  style="float:left;padding-left:3%;"/ >
+			<tr>
+			<input type="text" id="humi_m"  maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_humi.jpg" style="float:left;"/>
+			<img src="./img/range.jpg" style="float:left;"/>
+			<input type="text" id="humi_M"  maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_humi.jpg" style="float:left;"/>
+			<br><br><br>
+
+			<img src="./img/solid_humi.jpg"  style="float:left;"/ >
+			<input type="text" id="shumi_m"  maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_humi.jpg" style="float:left;"/>
+			<img src="./img/range.jpg" style="float:left;"/>
+			<input type="text" id="shumi_M" maxlength=2 size=6 style="float:left;font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-top:-2%;"/>
+			<img src="./img/symbol_humi.jpg" style="float:left;"/>
+			
+			<br clear=ALL>
+			<img src="./img/OK.jpg" onclick="plant_setting();">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<!--setting_loaction.html-->
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<style type="text/css">
+	@FONT-FACE{
+		font-family: 'IDPWfont';
+		src:url("./font/BMHANNA_11yrs_ttf.ttf");
+		}
+	.add{
+		margin-top : 10px;
+		margin=left :20px;
+		margin-bottom : 10px;
+		width: 45%;
+		height : 100%;
+		float: left;
+		border-right-width: 2px;
+		border-right-color:#000000;
+		border-right-style: solid;
+		background-size : contain;
+		}
+	.list{
+		margin-top : 40px;
+		height : 100%;
+		width : 50%;
+		float :left;
+		overflow :auto;
+		}
+	p{
+		font-family: IDPWfont;
+		font-size : 2em;
+	}
+	table {
+		padding-left: 2%;
+		margin-left :10px;
+		border-collapse:collapse;
+		font-family : IDPWfont;
+		}
+	th{
+		border: 2px solid gray;
+		font-size :2.5em;
+	}
+	td{
+		font-size :1.5em;
+		border: 2px solid gray;
+		}
+</style>
+</head>
+<script type="text/javascript">
+	var num_rows = 0;
+	var new_row_num=0;
+	function add_node(){
+		$("#num_rows").val(++num_rows);
+		var device_n = document.getElementById("addr").value;
+		var perm = document.getElementById("perm").value;
+		if(perm == "1"){
+			perm = "센서부";
+		}else if(perm == "2"){
+			perm = "동작부";
+		}else{
+			perm = "";
+		}
+		var house = document.getElementById("house").value;
+		var sensor = document.getElementById("sensor").value;
+		var plant = document.getElementById("plant").value;
+		var tag = "";
+		tag += "<tr id=\"table_id"+new_row_num+"\">\n";
+		tag += "<td style=\"display:none;\">"+new_row_num+"</td>\n";
+		tag += "<td>"+device_n+"</td>\n";
+		tag += "<td>"+perm+"</td>\n";
+		tag += "<td>"+house+"</td>\n";
+		tag += "<td>"+sensor+"</td>\n";
+		tag += "<td>"+plant+"</td>\n";
+		tag += "<td>\n";
+		tag += "<img src=\"./img/remove.jpg\" onclick=\"remove("+new_row_num+");\"/></td>\n";
+		tag += "</tr>\n";
+		
+		$("#table_li").append(tag);
+		new_row_num++;
+	}
+	function remove(n){
+	$("#table_id"+n).remove();
+	$("#num_rows").val(--num_rows);
+	}
+</script>
+<body>
+<img src="./img/return.jpg" onclick="location.href='./setting_main.html'" style="float:left;">
+<p style="text-align: center;">
+	<img src="./img/logo_setting_main.jpg" >
+	<hr style="width: 100%;height: 4px;background-color:#000000;"/>
+	<br>
+	<div class="add">
+		<p style="font-family:IDPWfont;font-size: 2em;">장비 이름 : 
+			<input type="text" id="addr"  onclick="this.value='';" maxlength=50 size= 50 style="font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-left:30px;"/>
+		</p>
+		<p style="font-family:IDPWfont;font-size: 2em;">사용 용도 : 
+			<select id="perm" style="font-size: 1em;">
+				<option value="">용도 선택</option>
+				<option value="1">센서부</option>
+				<option value="2">동작부</option>
+			</select>
+		</p>
+		<p style="font-family:IDPWfont;font-size: 2em;">하우스 식별 : 
+				<input type="text" id="house"  onclick="this.value='';" maxlength=3 size= 5 style="font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-left:30px;"/>
+				<img src="./img/blank.jpg">
+				센서 위치 식별 :
+				<input type="text" id="sensor"  onclick="this.value='';" maxlength=2 size= 4 style="font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-left:30px;"/>		
+		</p>
+		<p style="font-family:IDPWfont;font-size: 2em;">작물 정보 :
+		<input type="text" id="plant"  onclick="this.value='';" maxlength=10 size= 15 style="font-size:1em;font-family: IDPWfont;height:auto;line-height:normal;padding: .8em .5em;padding-left:30px;"/>
+		</p>
+		<p style="text-align: center;"><img src="./img/OK.JPG" onclick="add_node()"/></p>
+	</div>
+	<div class="list">
+		<table id="table_li">
+			<thead>
+			<tr>
+				<th style="display:none">번호</th>
+				<th>장비 이름</th>
+				<th>사용 용도</th>
+				<th>하우스 번호</th>
+				<th>센서 위치</th>
+				<th>작물 정보</th>
+				<th>비고</th>
+			</tr>
+			</thead>
+		</table>
+	</div>
+	</body>
+</html>

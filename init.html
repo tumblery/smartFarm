@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<!--init.html-->
+<head>
+    <meta charset="UTF-8">
+    <title>Smart한 HOUSE</title>
+	<style>
+		body{
+			padding-top: 5%;
+		}
+		input{
+			vertical-align : middle;
+		}
+		input.login_button{
+			background : url("./img/init_login.JPG") no-repeat;
+			border : none;
+			width : 430px;
+			height : 79px;
+			cursor : pointer;
+		}
+		input.look_button{
+			background : url("./img/init_lookbtn.JPG") no-repeat;
+			border : none;
+			width : 430px;
+			height : 79px;
+			cursor : pointer;
+		}
+	</style>
+</head>
+<body>
+	<img src="./img/init_H.jpg" style="width:40%;height:auto;float:left;"/>
+	<div data-role="control" data-type="horizontal" style="width:60%;height:auto;float:left;text-align:center;">
+		<img src="./img/init_Title.JPG"/>
+		<input type="button" class="login_button" onclick="location.href='./login.html'">
+		<input type="button" class="look_button" onclick="location.href='./house_view.html'">
+	</div>
+</body>
+</html>

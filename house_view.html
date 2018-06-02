@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<!--main.html-->
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<style type="text/css">
+	.info{
+		margin-top : 10px;
+		padding-top :1%;
+		margin=left :20px;
+		margin-bottom : 10px;
+		border-right-color : black;
+		border-right-width : 2px;
+		border-right-style :solid;
+		width: 20%;
+		height : 100%;
+		float: left;
+		background-size : contain;
+		}
+	@FONT-FACE{
+		font-family: 'IDPWfont';
+		src:url("./font/BMHANNA_11yrs_ttf.ttf");
+		}
+	.setting{
+		float: right;
+		width: 50%;
+		text-align :center;
+		height :100%;
+		background-size: contain;
+		padding-top : 10%;
+		marin-top : 10px;
+		margin-fight : 10px;
+		margin-bottom : 10px;
+	}
+	
+	table {
+		padding-left: 2%;
+		margin-left :10px;
+		border-collapse:collapse;
+		font-family : IDPWfont;
+		}
+	th{
+		border: 2px solid gray;
+		font-size :2.5em;
+	}
+	td{
+		font-size :1.5em;
+		border: 2px solid gray;
+		}
+			
+	</style>
+
+</head>
+<script type="text/javascript">
+	function set_house(){
+		var house = document.getElementById("house").value;
+		var i = 1;
+		while(i<=house){
+			var tab = "";
+			tab += "<option value=\"house_"+i+"\">하우스_"+i+"</option>";
+			$("#house_num").append(tab);
+			i++;
+		}
+	}
+	function get_Sensor(house,count){
+		var string ="23,45,1030";
+		return string;
+	}
+	var presensor = 0;
+	function set_sensor(){
+		var house = document.getElementById("house_num").value;
+		var sensor = document.getElementById("sensor").value;
+		var count =0;
+		var tmp = parseInt(sensor/2);
+		console.log(presensor);
+		while((--presensor)>=0){
+			$("#tr_"+presensor).remove();
+		}
+		var row =0;
+		while(tmp > 0){
+			var string_b = get_Sensor(house,count);
+			var string = string_b.split(",");
+			var tag = "";
+			tag += "<tr id=\"tr_"+row+"\">";
+			tag += "<td>"+count+"<br>";
+			tag += "현재 온도 : "+string[0]+"<br>";
+			tag += "현재 습도 : "+string[1]+"<br>";
+			tag += "현재 토양 습도 : "+string[2]+"</td>";
+			count++;
+			string_b = get_Sensor(house,count);
+			string = string_b.split(",");
+			tag += "<td>"+count+"<br>";
+			tag += "현재 온도 : "+string[0]+"<br>";
+			tag += "현재 습도 : "+string[1]+"<br>";
+			tag += "현재 토양 습도 : "+string[2]+"</td>";
+			tag += "</tr>\n";
+			count++;			
+			$("#table_li").append(tag);	
+			tmp--;
+			row++;
+		}
+		if(sensor%2 == 1){
+			var string_b = get_Sensor(house,count);
+			var string = string_b.split(",");
+			var tag = "";
+			tag += "<tr id=\"tr_"+row+"\">";
+			tag += "<td>"+count+"<br>";
+			tag += "현재 온도 : "+string[0]+"<br>";
+			tag += "현재 습도 : "+string[1]+"<br>";
+			tag += "현재 토양 습도 : "+string[2]+"</td>";
+			tag += "<td style=\"background-color: black;\"></td>";
+			tag += "</tr>\n";	
+			count++;
+			$("#table_li").append(tag);	
+			row++;
+		}
+		presensor = row;
+	}
+	
+</script>
+<body>
+	<div class="info">
+		<input type=text size=3 maxlength=2 id="house"/>
+		<input type=button value="확인" onclick="set_house();"/>
+		<p style="font-family:IDPWfont;padding-left:10%;">하우스 선택
+		<select id="house_num" style="font-size: 1em;">
+			<option value="">하우스 선택</option>
+		</select>
+		</p>
+		<input type=text size=3 maxlength=2 id="sensor"/>
+		<input type=button value="확인" onclick="set_sensor();"/>
+		<img src="./img/init_H.jpg" style="width:100%;height:auto;"/>
+	</div>
+	<div class="setting">
+		<table id="table_li">
+			<thead>
+				<th>left</th>
+				<th>right</th>
+			</thead>
+		</table>
+	</div>
+</body>
+</html>
